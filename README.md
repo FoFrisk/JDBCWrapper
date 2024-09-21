@@ -20,44 +20,40 @@
 ## DatabaseConnection
 > 该类封装了一些关于数据库连接的操作
 ### 构造方法摘要
-#### `DatabaseConnection(String url, String user, String password)`
+`DatabaseConnection(String url, String user, String password)`
+
 > 构造一个DatabaseConnection对象，并指定其连接的数据库URL，以及用户和密码
 ### 方法摘要
-#### `public Database getDatabase()`
-> 获取连接到的Database对象
-#### 结果
-连接到的Database对象
-#### 异常
-SQLException
-#### 从以下版本开始：
-JDBCWrapper-1.0.0
+`public Database getDatabase()`
 
-#### `pulic void close()`
+> 获取连接到的Database对象
+
+`pulic void close()`
+
 > 关闭与数据库的连接
-#### 异常
-SQLException
 ## Database
 > 该类封装了一些数据库的相关操作
 ### 构造方法摘要
-#### `Database(String name, Statement statement)`
+`Database(String name, Statement statement)`
+
 > 使用指定的name和statement获取数据库对象
 ### 方法摘要
-#### `public Table getTable(String name, Statement statement)`
+`public Table getTable(String name, Statement statement)`
+
 > 使用指定的name和statement获取表对象
-#### 参数
+
+**参数**
+
 name - 指定的表名，必须存在，否则会抛出SQLException
 
 statement - 用于代表该表属于哪个数据库
-#### 结果
-指定的Table对象
-#### 异常
-SQLException
-#### 从以下版本开始：
-JDBCWrapper-1.0.0
 
-#### `public Table createTable(String tableName, int size, String[] columnNames, String[] columnTypes, String[] columnLengths)`
+`public Table createTable(String tableName, int size, String[] columnNames, String[] columnTypes, String[] columnLengths)`
+
 > 使用指定的tableName和字段名、字段类型、字段长度创建表对象
-#### 参数
+
+**参数**
+
 tableName - 要创建的表的名字，其中不要出现中文
 
 size - 表的长度，后面三个String[]必须遵守该长度，短于该长度将会抛出ArrayIndexOutOfBoundsException，超过该长度的部分将被舍弃
@@ -67,11 +63,5 @@ columnNames - 要创建的表中的所有字段名称
 columnTypes - 所有字段对应的类型
 
 columnLengths - 所有字段对应的长度
-#### 结果
-创建的Table对象
-#### 异常
-ArrayIndexOutOfBoundsException,SQLException
-#### 从以下版本开始：
-JDBCWrapper-1.0.0
 
 (待完善)
