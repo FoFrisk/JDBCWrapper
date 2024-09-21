@@ -42,26 +42,19 @@
 
 > 使用指定的name和statement获取表对象
 
-**参数**
-
-name - 指定的表名，必须存在，否则会抛出SQLException
-
+- 参数<br>
+name - 指定的表名，必须存在，否则会抛出SQLException<br>
 statement - 用于代表该表属于哪个数据库
 
 `public Table createTable(String tableName, int size, String[] columnNames, String[] columnTypes, String[] columnLengths)`
 
 > 使用指定的tableName和字段名、字段类型、字段长度创建表对象
 
-**参数**
-
-tableName - 要创建的表的名字，其中不要出现中文
-
-size - 表的长度，后面三个String[]必须遵守该长度，短于该长度将会抛出ArrayIndexOutOfBoundsException，超过该长度的部分将被舍弃
-
-columnNames - 要创建的表中的所有字段名称
-
-columnTypes - 所有字段对应的类型
-
+- 参数<br>
+tableName - 要创建的表的名字，其中不要出现中文<br>
+size - 表的长度，后面三个String[]必须遵守该长度，短于该长度将会抛出ArrayIndexOutOfBoundsException，超过该长度的部分将被舍弃<br>
+columnNames - 要创建的表中的所有字段名称<br>
+columnTypes - 所有字段对应的类型<br>
 columnLengths - 所有字段对应的长度
 
 (待完善)
