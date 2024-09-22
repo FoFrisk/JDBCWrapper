@@ -172,8 +172,8 @@
 > 使用`update`命令修改符合指定条件的数据
 
 - 参数<br>
-  condition - 指定的条件，如id=1
-  fieldName - 要修改的字段的名称，必须存在，否则会抛出SQLException
+  condition - 指定的条件，如id=1<br>
+  fieldName - 要修改的字段的名称，必须存在，否则会抛出SQLException<br>
   value - 要修改成的值，必须符合创建时的类型和长度，否则会抛出SQLException
 
 `public ResultSet search(String columnName, boolean isOutput) throws SQLException`
@@ -181,7 +181,7 @@
 > 使用`select`命令搜索表，默认搜索全部
 
 - 参数<br>
-  columnName - 选中的列名，在1.0.0版本中为fieldName
+  columnName - 选中的列名，在1.0.0版本中为fieldName<br>
   isOutput - true则会将结果输出在控制台，反之亦然
 
 `public ResultSet search(String columnName, String condition, boolean isOutput) throws SQLException`
@@ -189,8 +189,8 @@
 > 使用`select`命令搜索表，可指定搜索条件，如要搜索整张表，则令condition为null即可
 
 - 参数<br>
-  columnName - 选中的列名，在1.0.0版本中为fieldName
-  condition - 指定的条件，如id=1
+  columnName - 选中的列名，在1.0.0版本中为fieldName<br>
+  condition - 指定的条件，如id=1<br>
   isOutput - true则会将结果输出在控制台，反之亦然
 
 ## class TablePrintStream
