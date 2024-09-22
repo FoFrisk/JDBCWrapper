@@ -193,9 +193,9 @@
   condition - 指定的条件，如id=1<br>
   isOutput - true则会将结果输出在控制台，反之亦然
 
-## class TablePrintStream
+## interface TablePrintStream
 
-> 该类用于将指定的ResultSet对象使用表格输出，目前若使用中文，则会出现表格无法对齐的问题
+> 该接口用于将指定的ResultSet对象使用表格输出，目前若使用中文，则会出现表格无法对齐的问题，该接口在1.0.0版本中为类
 
 ### 方法摘要
 
