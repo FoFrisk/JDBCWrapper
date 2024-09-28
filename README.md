@@ -67,10 +67,12 @@
 - 参数<br>
   name - 指定的表名，必须存在，否则会抛出SQLException<br>
   statement - 用于代表该表属于哪个数据库
+```
+@Deprecated
+public Table createTable(String tableName, int size, String[] fieldNames, String[] fieldTypes, String[] fieldLengths) throws SQLException
+```
 
-`public Table createTable(String tableName, int size, String[] fieldNames, String[] fieldTypes, String[] fieldLengths) throws SQLException`
-
-> 使用`create table`命令创建指定名称、字段名、字段类型、字段长度的Table对象
+> 使用`create table`命令创建指定名称、字段名、字段类型、字段长度的Table对象，该方法于1.1.0版本后被标记为过时
 
 - 参数<br>
   tableName - 要创建的表的名字，其中不要出现中文<br>
@@ -79,6 +81,14 @@
   fieldNames - 要创建的表中的所有字段名称，1.1.0以前被命名为columnNames<br>
   fieldTypes - 所有字段对应的类型，1.1.0以前被命名为columnTypes<br>
   fieldLengths - 所有字段对应的长度，1.1.0以前被命名为columnLengths
+
+`public Table createTable(String tableName, FieldList fieldList) throws SQLException`
+
+> 使用`create table`命令创建字段列表为fieldList的Table对象，该方法添加于1.1.0版本
+
+- 参数<br>
+  tableName - 要创建的表的名字，其中不要出现中文<br>
+  fieldList - 指定的字段列表
 
 `public void chooseDatabase(String name) throws SQLException`
 
@@ -193,6 +203,46 @@
   condition - 指定的条件，如id=1<br>
   isOutput - true则会将结果输出在控制台，反之亦然
 
+## class FieldList
+
+> 该类用于规范化创建Table对象时传入的字段列表，该类添加于1.1.0版本
+
+### 方法摘要
+
+`public void addPrimaryField(String fieldName, String fieldType, String fieldLength)`
+
+> 向FieldList对象中添加指定fieldName, fieldType和fieldLength的具有主键约束的字段
+
+- 参数<br>
+  fieldName - 要添加的字段的名称，不允许重复，否则会抛出SQLException<br>
+  fieldType - 要添加的字段的类型<br>
+  fieldLength - 要添加的字段的长度
+
+`public void addField(String fieldName, String fieldType, String fieldLength)`
+
+> 向FieldList对象中添加指定fieldName, fieldType和fieldLength的普通字段，默认值为null，不具有非空约束和唯一约束
+
+- 参数<br>
+  fieldName - 要添加的字段的名称，不允许重复，否则会抛出SQLException<br>
+  fieldType - 要添加的字段的类型<br>
+  fieldLength - 要添加的字段的长度
+
+`public void addField(String fieldName, String fieldType, String fieldLength, Object defaultValue, boolean isNotNull, boolean isUnique)`
+
+> 向FieldList对象中添加指定fieldName, fieldType和fieldLength的字段，可设置默认值、是否非空、是否唯一
+
+- 参数<br>
+  fieldName - 要添加的字段的名称，不允许重复，否则会抛出SQLException<br>
+  fieldType - 要添加的字段的类型<br>
+  fieldLength - 要添加的字段的长度<br>
+  defaultValue - 该字段的默认值<br>
+  isNotNull - 用于设置该字段是否具有非空约束<br>
+  isUnique - 用于设置该字段是否具有唯一约束
+
+`public int size()`
+
+> 获取该FieldList对象中具有字段的数量
+
 ## interface TablePrintStream
 
 > 该接口用于将指定的ResultSet对象使用表格输出，目前若使用中文，则会出现表格无法对齐的问题，该接口在1.0.0版本中为类
@@ -203,10 +253,21 @@
 
 > 使用指定的每一列的最大长度输出分割线
 
+- 参数<br>
+  maxLengths - 每一列的最大长度
+
 `private static void printRows(ResultSet resultSet, int[] maxLengths) throws SQLException`
 
 > 使用每一列的最大长度以表格形式输出指定的ResultSet对象中的每一行数据
 
+- 参数<br>
+  resultSet - 要输出的内容<br>
+  maxLengths - 每一列的最大长度
+
 `public static void printTable(ResultSet resultSet, String... titles) throws SQLException`
 
 > 使用指定的ResultSet对象和标题以表格形式输出ResultSet对象中的所有数据
+
+- 参数<br>
+  resultSet - 要输出的内容<br>
+  titles - 要输出的表格每一列的名称
