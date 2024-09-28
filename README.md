@@ -68,7 +68,7 @@
   name - 指定的表名，必须存在，否则会抛出SQLException<br>
   statement - 用于代表该表属于哪个数据库
 
-`public Table createTable(String tableName, int size, String[] columnNames, String[] columnTypes, String[] columnLengths) throws SQLException`
+`public Table createTable(String tableName, int size, String[] fieldNames, String[] fieldTypes, String[] fieldLengths) throws SQLException`
 
 > 使用`create table`命令创建指定名称、字段名、字段类型、字段长度的Table对象
 
@@ -76,9 +76,9 @@
   tableName - 要创建的表的名字，其中不要出现中文<br>
   size - 表的长度，后面三个String[]
   必须遵守该长度，短于该长度将会抛出ArrayIndexOutOfBoundsException，超过该长度的部分将被舍弃<br>
-  columnNames - 要创建的表中的所有字段名称<br>
-  columnTypes - 所有字段对应的类型<br>
-  columnLengths - 所有字段对应的长度
+  fieldNames - 要创建的表中的所有字段名称，1.1.0以前被命名为columnNames<br>
+  fieldTypes - 所有字段对应的类型，1.1.0以前被命名为columnTypes<br>
+  fieldLengths - 所有字段对应的长度，1.1.0以前被命名为columnLengths
 
 `public void chooseDatabase(String name) throws SQLException`
 
