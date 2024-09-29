@@ -165,7 +165,7 @@ public Table createTable(String tableName, int size, String[] fieldNames, String
 
 `public void add(Object... values) throws SQLException`
 
-> 使用`insert into`命令向当前表格中添加数据
+> 使用`insert into`命令向当前表格中添加数据，1.1.0版本后支持使用`"default"`将插入数据的某个字段设置为默认值
 
 - 参数<br>
   values - 要添加的数据，必须与表格创建时的每个字段类型、长度相对应，否则会抛出SQLException
@@ -196,7 +196,7 @@ public Table createTable(String tableName, int size, String[] fieldNames, String
 
 `public ResultSet search(String columnName, String condition, boolean isOutput) throws SQLException`
 
-> 使用`select`命令搜索表，可指定搜索条件，如要搜索整张表，则令condition为null即可
+> 使用`select`命令搜索表，可指定搜索条件，如要搜索整张表，则令condition为`"true"`即可
 
 - 参数<br>
   columnName - 选中的列名，在1.0.0版本中为fieldName<br>
@@ -211,7 +211,7 @@ public Table createTable(String tableName, int size, String[] fieldNames, String
 
 `public void addPrimaryField(String fieldName, String fieldType, String fieldLength)`
 
-> 向FieldList对象中添加指定fieldName, fieldType和fieldLength的具有主键约束的字段
+> 向FieldList对象中添加指定fieldName, fieldType和fieldLength的主键字段
 
 - 参数<br>
   fieldName - 要添加的字段的名称，不允许重复，否则会抛出SQLException<br>
@@ -220,7 +220,7 @@ public Table createTable(String tableName, int size, String[] fieldNames, String
 
 `public void addField(String fieldName, String fieldType, String fieldLength)`
 
-> 向FieldList对象中添加指定fieldName, fieldType和fieldLength的普通字段，默认值为null，不具有非空约束和唯一约束
+> 向FieldList对象中添加指定fieldName, fieldType和fieldLength的普通字段，默认值为null，不具有任何约束
 
 - 参数<br>
   fieldName - 要添加的字段的名称，不允许重复，否则会抛出SQLException<br>
@@ -229,7 +229,7 @@ public Table createTable(String tableName, int size, String[] fieldNames, String
 
 `public void addField(String fieldName, String fieldType, String fieldLength, Object defaultValue, boolean isNotNull, boolean isUnique)`
 
-> 向FieldList对象中添加指定fieldName, fieldType和fieldLength的字段，可设置默认值、是否非空、是否唯一
+> 向FieldList对象中添加指定fieldName, fieldType和fieldLength的字段，可设置默认值、是否具有非空约束和唯一约束
 
 - 参数<br>
   fieldName - 要添加的字段的名称，不允许重复，否则会抛出SQLException<br>
@@ -266,8 +266,8 @@ public Table createTable(String tableName, int size, String[] fieldNames, String
 
 `public static void printTable(ResultSet resultSet, String... titles) throws SQLException`
 
-> 使用指定的ResultSet对象和标题以表格形式输出ResultSet对象中的所有数据
+> 使用指定的标题以表格形式输出ResultSet对象中的所有数据
 
 - 参数<br>
   resultSet - 要输出的内容<br>
-  titles - 要输出的表格每一列的名称
+  titles - 要输出的表格每一列的标题
