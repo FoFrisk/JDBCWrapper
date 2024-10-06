@@ -97,31 +97,31 @@ public Table createTable(String tableName, int size, String[] fieldNames, String
 - 参数<br>
   name - 指定的数据库名称，必须存在，否则会抛出SQLException
 
-`public void createDatabase(String name) throws SQLException`
+`public static void createDatabase(String name) throws SQLException`
 
-> 使用`create database`命令创建指定名称的数据库，默认字符集utf8
+> 使用`create database`命令创建指定名称的数据库，默认字符集utf8，该方法于1.1.1版本后添加了static修饰符
 
 - 参数<br>
   name - 要创建的数据库的名称，不要出现中文
 
-`public void createDatabase(String name, String charset) throws SQLException`
+`public static void createDatabase(String name, String charset) throws SQLException`
 
-> 使用`create database`命令创建指定名称的数据库，可设置字符集
+> 使用`create database`命令创建指定名称的数据库，可设置字符集，该方法于1.1.1版本后添加了static修饰符
 
 - 参数<br>
   name - 要创建的数据库的名称，不要出现中文<br>
   charset - 要创建的数据库的字符集，如utf8,gbk等
 
-`public void deleteDatabase(String name) throws SQLException`
+`public static void deleteDatabase(String name) throws SQLException`
 
-> 使用`drop database`命令删除指定名称的数据库
+> 使用`drop database`命令删除指定名称的数据库，该方法于1.1.1版本后添加了static修饰符
 
 - 参数<br>
   name - 要删除的数据库的名称
 
-`public void showDatabases() throws SQLException`
+`public static void showDatabases() throws SQLException`
 
-> 使用`show databases`命令输出所有数据库名称
+> 使用`show databases`命令输出所有数据库名称，该方法于1.1.1版本后添加了static修饰符
 
 `public void showTables() throws SQLException`
 
@@ -186,17 +186,17 @@ public Table createTable(String tableName, int size, String[] fieldNames, String
   fieldName - 要修改的字段的名称，必须存在，否则会抛出SQLException<br>
   value - 要修改成的值，必须符合创建时的类型和长度，否则会抛出SQLException
 
-`public ResultSet search(String columnName, boolean isOutput) throws SQLException`
+`public ResultSet search(boolean isOutput) throws SQLException`
 
-> 使用`select`命令搜索表，默认搜索全部
+> 使用`select`命令搜索表，默认搜索整张表
 
 - 参数<br>
-  columnName - 选中的列名，在1.0.0版本中为fieldName<br>
+  columnName - 选中的列名，在1.0.0版本中为fieldName，该参数仅存在于1.1.1版本以前<br>
   isOutput - true则会将结果输出在控制台，反之亦然
 
 `public ResultSet search(String columnName, String condition, boolean isOutput) throws SQLException`
 
-> 使用`select`命令搜索表，可指定搜索条件，如要搜索整张表，则令condition为`"true"`即可
+> 使用`select`命令搜索表，可指定搜索条件，如要搜索整张表，则令condition为`"true"`(1.1.0版本以前为`null`)即可
 
 - 参数<br>
   columnName - 选中的列名，在1.0.0版本中为fieldName<br>
