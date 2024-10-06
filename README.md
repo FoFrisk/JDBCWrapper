@@ -5,20 +5,20 @@
 ## 如何使用
 
 1. 点击上面的"Code",然后选择"Download Zip"
-2. 在下载的文件夹中找到你需要的版本所在的文件夹(例如JDBCWrapper-1.1.0)，然后删除你不需要的其它版本
+2. 在下载的文件夹中找到你需要的版本所在的文件夹(例如JDBCWrapper-1.1.1)，然后删除你不需要的其它版本
 
 ### Intellij Idea
 
 1. 选择File >  Project Structure，然后在左侧找到Project Settings > Libraries
-2. 点击左上角的加号，然后选择Java，并选择你需要的版本所在的文件夹(例如JDBCWrapper-1.1.0)
+2. 点击左上角的加号，然后选择Java，并选择你需要的版本所在的文件夹(例如JDBCWrapper-1.1.1)
 3. 选择该Library添加到的Modules(可选)
 4. 连续点击OK直至完成
 
 ### Eclipse
 
 1. 右键项目，选择Build Path > Add Libraries，然后选择User Library，再点击Next
-2. 为自己的Library起名(例如JDBCWrapper-1.1.0)，然后点击OK
-3. 在右侧选择Add JARs，并在弹出窗口中选择你需要的版本所有.jar文件(例如JDBCWrapper-1.1.0.jar和mysql-connector-j-9.0.0.jar)
+2. 为自己的Library起名(例如JDBCWrapper-1.1.1)，然后点击OK
+3. 在右侧选择Add JARs，并在弹出窗口中选择你需要的版本所有.jar文件(例如JDBCWrapper-1.1.1.jar和mysql-connector-j-9.0.0.jar)
 4. 点击OK完成设置
 
 ### 注意
